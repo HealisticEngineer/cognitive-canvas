@@ -10,6 +10,7 @@ cognitive-canvas is a project designed to expand on ollama retention by creating
 - **Thought Loop**: Continuously generates new thoughts based on recent memory context.
 - **News Integration**: Fetches headlines from external news sources (e.g., BBC RSS feed) to provide fresh context.
 - **Memory Persistence**: Stores thoughts in a SQLite database for future reference.
+- **Web Integration**: Fetches and summarizes web search results for additional context.
 
 ## Installation
 To get started with cognitive-canvas, follow these steps:
@@ -28,6 +29,7 @@ go run .
    - Generate a new thought based on the context using the `ollama` command-line tool.
    - Save the generated thought back into the database.
 3. The loop will repeat every 60 seconds.
+4. If a thought contains `fetch: <topic>`, the system will fetch web data for the specified topic and store the results in the database.
 
 ## Prerequisites
 - **Go**: Ensure you have Go 1.24.2 or later installed.
@@ -44,7 +46,9 @@ cognitive-canvas/
 ├── memory.go            # Memory management (SQLite integration)
 ├── news.go              # Fetches news headlines
 ├── thought.go           # Thought generation logic
+├── web.go               # Fetches and summarizes web search results
 ├── ollama_memory.db     # SQLite database (auto-created)
+├── flow.drawio          # Diagram of the application's workflow
 ├── README.md            # Project documentation
 ```
 
@@ -59,7 +63,7 @@ This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICEN
 
 ## Milestones
 - [x] Create a cognitive-canvas code that will create a thought loop.
-- [ ] Create a canvas for the model to draw on information from the news and other sources.
+- [x] Create a cognitive-canvas for the model to draw on information from the news and other sources.
 - [ ] Enhance thought generation with more advanced AI models and context integration.
 - [ ] Add a web interface for visualizing thoughts and memory.
 

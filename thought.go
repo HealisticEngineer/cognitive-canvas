@@ -7,7 +7,7 @@ import (
 )
 
 func GenerateThought(prompt string) (string, error) {
-	cmd := exec.Command("ollama", "run", "qwen2.5-coder:14b", prompt)
+	cmd := exec.Command("ollama", "run", "llama3.1:8b", prompt)
 	var out, stderr bytes.Buffer
 	cmd.Stdout = &out
 	cmd.Stderr = &stderr
